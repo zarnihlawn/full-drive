@@ -1,0 +1,84 @@
+<script lang="ts">
+	import DaisyUiButton from '$lib/component/library/daisyui/button/DaisyUiButton.svelte';
+	import DaisyUiLabel from '$lib/component/library/daisyui/label/DaisyUiLabel.svelte';
+	import DaisyUiSelect from '$lib/component/library/daisyui/select/DaisyUiSelect.svelte';
+	import { FontEnum } from '$lib/model/enum/font.enum';
+	import { ThemeEnum } from '$lib/model/enum/theme.enum';
+	import type { DialogSlotProps } from '$lib/model/interface/dialog.interface';
+	import { FontTool } from '$lib/tool/font.tool.svelte';
+	import { ThemeTool } from '$lib/tool/theme.tool.svelte';
+	import { LocalStorageUtil } from '$lib/util/local-storage.util.svelte';
+
+	let { confirm, cancel }: DialogSlotProps = $props();
+
+	const localStorageUtil = new LocalStorageUtil();
+	const themeTool = new ThemeTool(localStorageUtil);
+	const fontTool = new FontTool(localStorageUtil);
+
+	let currentTheme: ThemeEnum = $state(
+		themeTool.getTheme() ?? ThemeEnum.LIGHT
+	);
+	let currentFont: FontEnum = $state(
+		fontTool.getFont() ?? FontEnum.ADWAITA_SANS
+	);
+
+	function handleConfirm() {
+		confirm({
+			theme: currentTheme,
+			font: currentFont
+		});
+	}
+</script>
+
+<div class="flex flex-col gap-5">
+	<div class="flex items-center gap-5">
+		<DaisyUiLabel forText="theme" className="w-20"
+			>Theme:</DaisyUiLabel
+		>
+		<DaisyUiSelect
+			optionHeader="Select Theme"
+			className="w-full"
+			bind:value={currentTheme}
+		>
+			{#each Object.values(ThemeEnum) as theme}
+				{#if theme === currentTheme}
+					<option value={theme} selected>{theme}</option>
+				{:else}
+					<option value={theme}>{theme}</option>
+				{/if}
+			{/each}
+		</DaisyUiSelect>
+	</div>
+
+	<div class="flex items-center gap-5">
+		<DaisyUiLabel forText="font" className="w-20"
+			>Font:</DaisyUiLabel
+		>
+
+		<DaisyUiSelect
+			optionHeader="Select Font"
+			className="w-full"
+			bind:value={currentFont}
+		>
+			{#each Object.values(FontEnum) as font}
+				{#if font === currentFont}
+					<option value={font} selected>{font}</option>
+				{:else}
+					<option value={font}>{font}</option>
+				{/if}
+			{/each}
+		</DaisyUiSelect>
+	</div>
+</div>
+
+<div class="d-modal-action">
+	<DaisyUiButton className="d-btn" onClick={() => cancel()}>
+		Cancel
+	</DaisyUiButton>
+	<DaisyUiButton
+		onClick={() => handleConfirm()}
+		className="d-btn d-btn-primary"
+	>
+		OK
+	</DaisyUiButton>
+</div>
