@@ -1,4 +1,1 @@
-{
-	"$schema": "https://inlang.com/schema/inlang-message-format",
-	"hello_world": "Hello, {name} from my!"
-}
+{"$schema":"https://inlang.com/schema/inlang-message-format","hello_world":"မင်္ဂလာပါ {name} ရှင့်","full_drive":"Full Drive","sign_up":"စာရင်းသွင်းမည်","log_in":"ဝင်ရောက်မည်","documentation":"အချက်အလက်","changelog":"ပြောင်းလဲမှုမှတ်တမ်း","pricing":"ဈေးနှုန်း"}
