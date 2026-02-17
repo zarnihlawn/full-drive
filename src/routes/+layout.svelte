@@ -18,6 +18,7 @@
 	import { LifeCycleUtil } from '$lib/util/life-cycle.util.svelte';
 	import { FontTool } from '$lib/tool/font.tool.svelte';
 	import GQuickTool from '$lib/component/global/GQuickTool.svelte';
+	import { m } from '$lib/paraglide/messages.js';
 
 	let { children } = $props();
 
@@ -41,9 +42,8 @@
 
 <!-- Head -->
 <svelte:head>
-	<title>Nice</title>
+	<title>{m.full_drive()}</title>
 </svelte:head>
-
 <!-- Root Body -->
 {@render children()}
 
