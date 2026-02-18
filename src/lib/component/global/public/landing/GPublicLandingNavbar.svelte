@@ -8,8 +8,8 @@
 	import DaisyUiNavbar from '$lib/component/library/daisyui/navbar/DaisyUiNavbar.svelte';
 	import DaisyUiNavbarEnd from '$lib/component/library/daisyui/navbar/end/DaisyUiNavbarEnd.svelte';
 	import DaisyUiNavbarStart from '$lib/component/library/daisyui/navbar/start/DaisyUiNavbarStart.svelte';
+	import LucideBell from '$lib/component/library/lucide/LucideBell.svelte';
 	import LucideButterfly from '$lib/component/library/lucide/LucideButterfly.svelte';
-	import LucideMenu from '$lib/component/library/lucide/LucideMenu.svelte';
 	import { WebRoutesEnum } from '$lib/model/enum/routes.enum';
 	import { m } from '$lib/paraglide/messages.js';
 </script>
@@ -18,7 +18,7 @@
 	<DaisyUiNavbarStart>
 		<DaisyUiDropdown className="lg:hidden">
 			<DaisyUiDropdownButton>
-				<LucideMenu />
+				<LucideBell />
 			</DaisyUiDropdownButton>
 			<DaisyUiDropdownContent className="text-left">
 				<DaisyUiLink
