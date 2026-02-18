@@ -9,7 +9,7 @@
 	<section class="landing-navbar">
 		<GPublicLandingNavbar />
 	</section>
-	<div class="my-main">
+	<div class="my-main px-2 py-5">
 		{@render children()}
 	</div>
 	<div class="landing-footerbar">
