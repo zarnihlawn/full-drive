@@ -13,17 +13,28 @@
 </script>
 
 <svelte:head>
-	<title>{m.log_in()} | {m.full_drive()}</title>
+	<title>{m.sign_up()} | {m.full_drive()}</title>
 </svelte:head>
 
 <DaisyUiCard className="auth-card d-card-compact shadow-lg">
 	<DaisyUiCardBody>
 		<DaisyUiCardBodyTitle className="text-2xl">
-			{m.log_in_title()}
+			{m.signup_title()}
 		</DaisyUiCardBodyTitle>
 
-		<form method="post" action="?/signInEmail" use:enhance class="auth-form mt-4 space-y-4">
+		<form method="post" action="?/signUpEmail" use:enhance class="auth-form mt-4 space-y-4">
 			<input type="hidden" name="callbackURL" value={WebRoutesEnum.LANDING_PAGE} />
+
+			<label class="d-form-control w-full">
+				<span class="d-label-text">{m.name()}</span>
+				<input
+					type="text"
+					name="name"
+					autocomplete="name"
+					class="d-input d-input-bordered w-full"
+					placeholder="Your name"
+				/>
+			</label>
 
 			<label class="d-form-control w-full">
 				<span class="d-label-text">{m.email()}</span>
@@ -38,22 +49,17 @@
 			</label>
 
 			<label class="d-form-control w-full">
-				<div class="d-label flex justify-between">
-					<span class="d-label-text">{m.password()}</span>
-					<DaisyUiLink
-						href={WebRoutesEnum.FORGET_PASSWORD}
-						className="d-label-text-alt d-link d-link-hover text-sm"
-					>
-						{m.forgot_password()}
-					</DaisyUiLink>
-				</div>
+				<span class="d-label-text">{m.password()}</span>
 				<input
 					type="password"
 					name="password"
-					autocomplete="current-password"
+					autocomplete="new-password"
 					required
+					minlength={8}
 					class="d-input d-input-bordered w-full"
+					placeholder="••••••••"
 				/>
+				<span class="d-label-text-alt">At least 8 characters</span>
 			</label>
 
 			{#if form?.message}
@@ -61,7 +67,7 @@
 			{/if}
 
 			<DaisyUiButton type="submit" className="d-btn-primary d-btn-block">
-				{m.log_in_submit()}
+				{m.sign_up_submit()}
 			</DaisyUiButton>
 		</form>
 
@@ -83,9 +89,9 @@
 		</form>
 
 		<p class="mt-6 text-center text-sm text-base-content/80">
-			{m.dont_have_account()}
-			<DaisyUiLink href={WebRoutesEnum.SIGNUP} className="d-link d-link-primary d-link-hover ml-1 font-medium">
-				{m.sign_up()}
+			{m.already_have_account()}
+			<DaisyUiLink href={WebRoutesEnum.LOGIN} className="d-link d-link-primary d-link-hover ml-1 font-medium">
+				{m.log_in()}
 			</DaisyUiLink>
 		</p>
 	</DaisyUiCardBody>
