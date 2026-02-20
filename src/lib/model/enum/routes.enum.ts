@@ -11,6 +11,7 @@ export enum WebRoutesEnum {
 	AUTH = "/auth",
 	LOGIN = "/auth/login",
 	SIGNUP = "/auth/signnup",
+	VERIFY_EMAIL = "/auth/verify-email",
 	FORGET_PASSWORD = "/auth/forget-password",
 
 }
