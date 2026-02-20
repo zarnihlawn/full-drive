@@ -2,7 +2,7 @@
  * Pricing plan IDs aligned with subscription.planTier in DB where applicable.
  * payAsYouGo = usage-based billing (no fixed monthly/yearly).
  */
-export type PlanId = 'free' | 'pro' | 'payAsYouGo';
+export type PlanId = 'free' | 'starter' | 'pro' | 'team' | 'payAsYouGo';
 
 export interface PricingFeature {
 	/** Message key or raw text */
@@ -62,6 +62,28 @@ export const PRICING_PLANS: PricingPlan[] = [
 		highlighted: false,
 	},
 	{
+		id: 'starter',
+		name: 'Starter',
+		storage: '20 GB',
+		monthlyPrice: 5,
+		yearlyPrice: 50,
+		tagline: 'For individuals and small teams',
+		features: [
+			{ text: '20 GB storage', included: true },
+			{ text: 'Up to 5 team members', included: true },
+			{ text: 'Basic API access', included: true },
+			{ text: 'Email support', included: true },
+			{ text: 'Advanced analytics', included: false },
+			{ text: 'Priority support', included: false },
+			{ text: 'SSO / SAML', included: false },
+		],
+		ctaLabel: 'Get started',
+		ctaHref: '/auth/signnup',
+		ctaVariant: 'secondary',
+		highlighted: false,
+		yearlyBadge: 'Save 17%',
+	},
+	{
 		id: 'pro',
 		name: 'Pro',
 		storage: '100 GB',
@@ -82,6 +104,28 @@ export const PRICING_PLANS: PricingPlan[] = [
 		ctaVariant: 'primary',
 		highlighted: true,
 		yearlyBadge: 'Save 25%',
+	},
+	{
+		id: 'team',
+		name: 'Team',
+		storage: '500 GB',
+		monthlyPrice: 29,
+		yearlyPrice: 290,
+		tagline: 'For larger teams and departments',
+		features: [
+			{ text: '500 GB storage', included: true },
+			{ text: 'Up to 50 team members', included: true },
+			{ text: 'Full API + webhooks', included: true },
+			{ text: 'Email support', included: true },
+			{ text: 'Advanced analytics', included: true },
+			{ text: 'Priority support', included: true },
+			{ text: 'SSO / SAML', included: false },
+		],
+		ctaLabel: 'Start free trial',
+		ctaHref: '/auth/signnup',
+		ctaVariant: 'secondary',
+		highlighted: false,
+		yearlyBadge: 'Save 17%',
 	},
 	{
 		id: 'payAsYouGo',

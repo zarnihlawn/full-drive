@@ -32,5 +32,20 @@
 	"verify_email_placeholder": "Enter code",
 	"verify_submit": "Verify",
 	"resend_code": "Resend code",
-	"verify_email_success": "Email verified. Redirecting…"
+	"verify_email_success": "Email verified. Redirecting…",
+	"hero_title": "Storage and files, built for teams",
+	"hero_subtitle": "Full Drive gives you secure storage, simple sharing, and an API so you can build on top of it. Start free, scale as you grow.",
+	"hero_cta_primary": "Get started free",
+	"hero_cta_secondary": "View pricing",
+	"features_title": "Why Full Drive",
+	"feature_1_title": "Secure storage",
+	"feature_1_desc": "Your files are stored safely with encryption. Role-based access and audit logs keep you in control.",
+	"feature_2_title": "Team collaboration",
+	"feature_2_desc": "Share folders, manage permissions, and work together. From small teams to enterprise.",
+	"feature_3_title": "API-first",
+	"feature_3_desc": "REST API and webhooks. Integrate with your apps, CLI, or automation. Pay only for what you use.",
+	"cta_title": "Ready to get started?",
+	"cta_subtitle": "Create an account in seconds. No credit card required.",
+	"cta_button": "Create account",
+	"footer_copyright": "© Full Drive."
 }
